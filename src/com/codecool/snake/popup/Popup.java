@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -21,6 +22,8 @@ abstract public class Popup extends Application{
 
         Label label = new Label();
 
+        Text score = new Text("Your score: "+Globals.score);
+
         Button restart = new Button("Restart");
         Button exit = new Button("Exit");
 
@@ -28,7 +31,7 @@ abstract public class Popup extends Application{
         exit.setOnAction(e -> System.exit(0));
 
         VBox layout = new VBox(10);
-        layout.getChildren().addAll(label, restart, exit);
+        layout.getChildren().addAll(label, score,restart, exit);
         layout.setAlignment(Pos.CENTER);
         Scene scene1 = new Scene(layout, 300, 300);
         Globals.popUp.setScene(scene1);
