@@ -10,14 +10,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-abstract public class PopupWindow extends Application{
+abstract public class Popup extends Application{
 
     public static void display(){
 
-        Stage popUp = new Stage();
+        Globals.popUp = new Stage();
 
-        popUp.initModality(Modality.APPLICATION_MODAL);
-        popUp.setTitle("Game over");
+        Globals.popUp.initModality(Modality.APPLICATION_MODAL);
+        Globals.popUp.setTitle("Game over");
 
         Label label = new Label();
 
@@ -31,10 +31,9 @@ abstract public class PopupWindow extends Application{
         layout.getChildren().addAll(label, restart, exit);
         layout.setAlignment(Pos.CENTER);
         Scene scene1 = new Scene(layout, 300, 300);
-        popUp.setScene(scene1);
+        Globals.popUp.setScene(scene1);
 
-        popUp.showAndWait();
-
+        Globals.popUp.show();
     }
 
 }
