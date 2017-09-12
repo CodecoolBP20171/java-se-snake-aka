@@ -23,10 +23,10 @@ public class Game extends Pane {
 
         // Refactor (put into a for loop....)
         new PoisonPowerUp(this);
+        /*new SimplePowerup(this);
         new SimplePowerup(this);
         new SimplePowerup(this);
-        new SimplePowerup(this);
-        new SimplePowerup(this);
+        new SimplePowerup(this);*/
 
         new HealthText(this);
 

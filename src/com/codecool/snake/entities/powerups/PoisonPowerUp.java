@@ -8,11 +8,12 @@ public class PoisonPowerUp extends SimplePowerup{
 
     public PoisonPowerUp(Pane pane){
         super(pane);
+        setImage(Globals.powerupPoison);
     }
 
     @Override
     public void apply(SnakeHead snakeHead){
-        Globals.setHealth(-15);
+        // health -= 5
         destroy();
     }
 
