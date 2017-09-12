@@ -12,6 +12,7 @@ import java.util.List;
 public class Globals {
 
     private static int score = 0;
+    private static int health = 100;
 
 
     public static final double WINDOW_WIDTH = 1000;
@@ -34,6 +35,14 @@ public class Globals {
         gameObjects = new LinkedList<>();
         newGameObjects = new LinkedList<>();
         oldGameObjects = new LinkedList<>();
+    }
+
+    public static int getHealth() {
+        return health;
+    }
+
+    public static void setHealth(int health) {
+        Globals.health = health;
     }
 
     public static void setScore(int score) { Globals.score = score; }
