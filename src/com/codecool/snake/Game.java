@@ -3,6 +3,7 @@ package com.codecool.snake;
 import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.powerups.SimplePowerup;
 import com.codecool.snake.entities.snakes.SnakeHead;
+import com.codecool.snake.popup.Popup;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
@@ -39,5 +40,20 @@ public class Game extends Pane {
         });
         Globals.gameLoop = new GameLoop();
         Globals.gameLoop.start();
+    }
+
+    public void menu(){
+        Globals.game = new Game();
+        Globals.gameObjects.clear();
+        Globals.primaryStage.setScene(new Scene(Globals.game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT));
+        Globals.primaryStage.show();
+        Popup.display();
+
+    }
+
+    public void restart(){
+        Globals.popUp.hide();
+        Globals.game.start();
+
     }
 }
