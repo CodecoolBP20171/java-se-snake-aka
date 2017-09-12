@@ -25,6 +25,8 @@ public class SimplePowerup extends GameEntity implements Interactable {
     public void apply(SnakeHead snakeHead) {
         snakeHead.addPart(4);
         destroy();
+        //For testTD only, because later we'll need "bogyó"
+        Globals.setScore(Globals.getScore() + 10);
     }
 
     @Override

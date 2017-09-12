@@ -12,6 +12,10 @@ import java.util.List;
 // class for holding all static stuff
 public class Globals {
 
+    private static int score = 0;
+    private static int health = 100;
+
+
     public static final double WINDOW_WIDTH = 1000;
     public static final double WINDOW_HEIGHT = 700;
 
@@ -35,6 +39,18 @@ public class Globals {
         newGameObjects = new LinkedList<>();
         oldGameObjects = new LinkedList<>();
     }
+
+    public static int getHealth() {
+        return health;
+    }
+
+    public static void setHealth(int health) {
+        Globals.health = health;
+    }
+
+    public static void setScore(int score) { Globals.score = score; }
+
+    public static int getScore() { return score; }
 
     public static void addGameObject(GameEntity toAdd) {
         newGameObjects.add(toAdd);

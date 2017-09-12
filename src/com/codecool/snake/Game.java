@@ -1,6 +1,7 @@
 package com.codecool.snake;
 
 import com.codecool.snake.entities.enemies.SimpleEnemy;
+import com.codecool.snake.entities.label.HealthText;
 import com.codecool.snake.entities.powerups.SimplePowerup;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import com.codecool.snake.popup.Popup;
@@ -10,17 +11,25 @@ import javafx.scene.layout.Pane;
 public class Game extends Pane {
 
     public Game() {
-        new SnakeHead(this, 500, 500);
 
+        SnakeHead snakeHead = new SnakeHead(this, 500, 500);
+
+        // Refactor (put into a for loop....)
         new SimpleEnemy(this);
         new SimpleEnemy(this);
         new SimpleEnemy(this);
         new SimpleEnemy(this);
 
+        // Refactor (put into a for loop....)
         new SimplePowerup(this);
         new SimplePowerup(this);
         new SimplePowerup(this);
         new SimplePowerup(this);
+
+        new HealthText(this);
+
+
+
     }
 
     public void start() {
