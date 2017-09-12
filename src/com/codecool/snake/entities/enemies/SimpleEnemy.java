@@ -17,13 +17,13 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
     private Point2D heading;
     private static final int damage = 10;
     double direction;
+    int speed = 3;
 
     public SimpleEnemy(Pane pane) {
         super(pane);
 
         setImage(Globals.simpleEnemy);
         pane.getChildren().add(this);
-        int speed = 1;
         Random rnd = new Random();
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
         setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
@@ -36,7 +36,18 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
     @Override
     public void step() {
         if (isOutOfBounds()) {
-           heading = Utils.directionToVector(getDirection()-180, 1);
+            if (getX() < 0 || getX() > Globals.WINDOW_WIDTH) {
+                this.direction = 360 - getDirection();
+                heading = Utils.directionToVector(direction, speed);
+            } else if (getY() < 0 || getY() > Globals.WINDOW_HEIGHT) {
+                if (getDirection() >= 180) {
+                    this.direction = 360 - getDirection() + 180;
+                    heading = Utils.directionToVector(direction, speed);
+                } else {
+                    this.direction = 180 - getDirection();
+                    heading = Utils.directionToVector(direction, speed);
+                }
+            } else {}
         }
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
@@ -44,8 +55,8 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
 
     @Override
     public void apply(SnakeHead player) {
-        player.changeHealth(-damage);
-        destroy();
+        //player.changeHealth(-damage);
+        //destroy();
     }
 
     @Override
@@ -54,7 +65,6 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
     }
 
     public double getDirection() {
-        System.out.println(direction);
         return direction;
     }
 }
