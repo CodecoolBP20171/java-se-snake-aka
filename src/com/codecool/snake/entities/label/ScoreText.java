@@ -4,6 +4,7 @@ import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.GameEntity;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class ScoreText extends GameEntity implements Animatable {
@@ -12,6 +13,7 @@ public class ScoreText extends GameEntity implements Animatable {
     public ScoreText(Pane pane) {
         super(pane);
         scoreText = new Text();
+        scoreText.setFont(Font.font("Verdana", 30));
         pane.getChildren().add(scoreText);
     }
 
