@@ -15,8 +15,8 @@ public class Main extends Application {
         Globals.game = new Game();
         Globals.primaryStage = primaryStage;
         Globals.primaryStage.setTitle("Snake Game");
-        Globals.primaryStage.setScene(new Scene(game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT));
+        Globals.primaryStage.setScene(new Scene(Globals.game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT));
         Globals.primaryStage.show();
-        game.start();
+        Globals.game.start();
     }
 }
