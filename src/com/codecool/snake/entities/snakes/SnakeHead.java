@@ -27,6 +27,10 @@ public class SnakeHead extends GameEntity implements Animatable {
         addPart(4);
     }
 
+    public int getHealth() {
+        return health;
+    }
+
     public void step() {
         double dir = getRotate();
         if (Globals.leftKeyDown) {
