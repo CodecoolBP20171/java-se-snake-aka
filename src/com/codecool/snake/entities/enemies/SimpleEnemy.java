@@ -36,10 +36,10 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
     @Override
     public void step() {
         if (isOutOfBounds()) {
-            if (getX() < 0 || getX() > Globals.WINDOW_WIDTH) {
+            if (getX() < 0 || getX() > (Globals.WINDOW_WIDTH-Globals.simpleEnemy.getWidth())) {
                 this.direction = 360 - getDirection();
                 heading = Utils.directionToVector(direction, speed);
-            } else if (getY() < 0 || getY() > Globals.WINDOW_HEIGHT) {
+            } else if (getY() < 0 || getY() > (Globals.WINDOW_HEIGHT-Globals.simpleEnemy.getHeight())) {
                 if (getDirection() >= 180) {
                     this.direction = 360 - getDirection() + 180;
                     heading = Utils.directionToVector(direction, speed);

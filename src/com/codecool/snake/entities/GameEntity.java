@@ -23,7 +23,7 @@ public abstract class GameEntity extends ImageView {
     }
 
     protected boolean isOutOfBounds() {
-        return (getX() > Globals.WINDOW_WIDTH || getX() < 0 ||
-            getY() > Globals.WINDOW_HEIGHT || getY() < 0);
+        return (getX() > (Globals.WINDOW_WIDTH - Globals.simpleEnemy.getWidth()) || getX() < 0 ||
+            getY() > (Globals.WINDOW_HEIGHT-Globals.simpleEnemy.getWidth()) || getY() < 0);
     }
 }
