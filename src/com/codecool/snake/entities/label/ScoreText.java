@@ -13,17 +13,17 @@ public class ScoreText extends GameEntity implements Animatable {
     public ScoreText(Pane pane) {
         super(pane);
         scoreText = new Text();
-        scoreText.setFont(Font.font("Verdana", 30));
         pane.getChildren().add(scoreText);
     }
 
     public void step() {
         // For TEST only
         Globals.setScore(Globals.getScore() + 1);
-        
+
         String score = "Score: " + String.valueOf(Globals.getScore());
-        scoreText.setX(20);
+        scoreText.setX(5);
         scoreText.setY(30);
+        scoreText.setFont(Font.font("Verdana", 30));
         scoreText.setText(score);
     }
 
