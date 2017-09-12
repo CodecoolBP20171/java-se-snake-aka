@@ -19,7 +19,7 @@ public class HealthText extends GameEntity implements Animatable {
 
     public void step() {
 
-        String health = "Health: " + String.valueOf());
+        String health = "Health: " + String.valueOf(Globals.getHealth());
         healthText.setX(5);
         healthText.setY(30);
         healthText.setFont(Font.font("Verdana", 30));
