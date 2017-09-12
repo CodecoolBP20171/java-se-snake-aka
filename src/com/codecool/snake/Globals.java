@@ -11,7 +11,7 @@ import java.util.List;
 // class for holding all static stuff
 public class Globals {
 
-    private static int score = 9999;
+    private static int score = 0;
 
 
     public static final double WINDOW_WIDTH = 1000;

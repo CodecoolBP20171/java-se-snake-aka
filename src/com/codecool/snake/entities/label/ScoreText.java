@@ -17,8 +17,8 @@ public class ScoreText extends GameEntity implements Animatable {
     }
 
     public void step() {
-        // For TEST only
-        Globals.setScore(Globals.getScore() + 1);
+
+        Globals.setScore(Globals.getScore());
 
         String score = "Score: " + String.valueOf(Globals.getScore());
         scoreText.setX(5);
