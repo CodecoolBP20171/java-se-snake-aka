@@ -5,6 +5,7 @@ import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,6 +15,7 @@ public class Globals {
 
     private static int score = 0;
     private static int health = 100;
+    private static int berryCounter = 0;
 
 
     public static final double WINDOW_WIDTH = 1000;
@@ -24,6 +26,7 @@ public class Globals {
     public static Image simpleEnemy = new Image("simple_enemy.png");
     public static Image powerupBerry = new Image("powerup_berry.png");
     public static Image powerupPoison = new Image("powerup_poison.png");
+    public static Image apple = new Image("apple-icon.png");
     //.. put here the other images you want to use
 
     public static boolean leftKeyDown;
@@ -41,12 +44,20 @@ public class Globals {
         oldGameObjects = new LinkedList<>();
     }
 
+    public static int getBerryCounter() {
+        return berryCounter;
+    }
+
+    public static void setBerryCounter(int berryCounter) {
+        Globals.berryCounter += berryCounter;
+    }
+
     public static int getHealth() {
         return health;
     }
 
     public static void setHealth(int health) {
-        Globals.health = health;
+        Globals.health += health;
     }
 
     public static void setScore(int score) { Globals.score = score; }
