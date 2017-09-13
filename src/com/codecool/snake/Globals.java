@@ -41,6 +41,9 @@ public class Globals {
     public static Stage primaryStage;public static Stage popUp;
     public static Game game;
 
+    public static double snakeCurrentX;
+    public static double snakeCurrentY;
+
     static {
         gameObjects = new LinkedList<>();
         newGameObjects = new LinkedList<>();
