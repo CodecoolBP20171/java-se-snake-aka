@@ -1,5 +1,6 @@
 package com.codecool.snake;
 
+import com.codecool.snake.entities.enemies.FollowingEnemy;
 import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.label.HealthText;
 import com.codecool.snake.entities.powerups.SimplePowerup;
@@ -9,16 +10,20 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
 public class Game extends Pane {
+    public static SnakeHead snakeHead;
+
 
     public Game() {
 
-        SnakeHead snakeHead = new SnakeHead(this, 500, 500);
+        snakeHead = new SnakeHead(this, 500, 500);
 
         // Refactor (put into a for loop....)
         new SimpleEnemy(this);
         new SimpleEnemy(this);
         new SimpleEnemy(this);
         new SimpleEnemy(this);
+
+        //new FollowingEnemy(this);
 
         // Refactor (put into a for loop....)
         new SimplePowerup(this);
@@ -27,6 +32,8 @@ public class Game extends Pane {
         new SimplePowerup(this);
 
         new HealthText(this);
+
+
 
 
 
@@ -52,17 +59,20 @@ public class Game extends Pane {
     }
 
     public void menu(){
+        Popup.display();
+    }
+
+    public void restart(){
         Globals.game = new Game();
         Globals.gameObjects.clear();
         Globals.primaryStage.setScene(new Scene(Globals.game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT));
         Globals.primaryStage.show();
-        Popup.display();
-
-    }
-
-    public void restart(){
         Globals.popUp.hide();
         Globals.game.start();
 
+    }
+
+    public void createFollowingEnemy() {
+            new FollowingEnemy(this);
     }
 }

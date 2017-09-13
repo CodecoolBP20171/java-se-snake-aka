@@ -13,7 +13,6 @@ import java.util.Random;
 
 // a simple enemy TODO make better ones.
 public class SimpleEnemy extends GameEntity implements Animatable, Interactable {
-
     private Point2D heading;
     private static final int damage = 10;
     double direction;
