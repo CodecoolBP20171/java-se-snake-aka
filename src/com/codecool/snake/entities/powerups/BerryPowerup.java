@@ -1,6 +1,7 @@
 package com.codecool.snake.entities.powerups;
 
 import com.codecool.snake.Globals;
+import com.codecool.snake.entities.enemies.PoisonEnemy;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.scene.layout.Pane;
 
@@ -12,6 +13,9 @@ public class BerryPowerup extends SimplePowerup{
         Globals.setBerryCounter(1);
         if(Globals.getBerryCounter() % 10 == 0){
             HealthPowerup apple = new HealthPowerup(pane);
+        }
+        if (Globals.getScore() % 150 == 0 || Globals.getScore() % 150 == 5){ //belenyúltam, elvileg így jó
+            new PoisonEnemy(pane);
         }
     }
 
