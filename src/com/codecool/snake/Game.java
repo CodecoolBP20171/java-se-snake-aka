@@ -71,7 +71,7 @@ public class Game extends Pane {
         Globals.game = new Game();
         System.out.println(SimpleEnemy.getEnemies().size());
         Globals.gameObjects.clear();
-        Globals.restartHealth();
+        Globals.restartHealth(); FollowingEnemy.enemyCounter = 0;
         Globals.primaryStage.setScene(new Scene(Globals.game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT));
         Globals.primaryStage.show();
         Globals.popUp.hide();

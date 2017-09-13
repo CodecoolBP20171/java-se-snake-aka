@@ -51,6 +51,7 @@ public class FollowingEnemy extends GameEntity implements Animatable, Interactab
         aliveTime = System.currentTimeMillis() - startTime;
         if (aliveTime > 5000) {
             aliveTime = 0;
+            enemyCounter = 0;
             destroy();
         }
     }
