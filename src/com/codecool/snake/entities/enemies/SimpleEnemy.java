@@ -33,11 +33,14 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
         // Enemy cannot spawn on the snakeHead.
         Random rnd = new Random();
         double xPosition = rnd.nextDouble() * Globals.WINDOW_WIDTH;
+        System.out.println(xPosition);
         double yPosition = rnd.nextDouble() * Globals.WINDOW_HEIGHT;
-
+        System.out.println(yPosition);
         boolean isOnSnakeHead = true;
         while (isOnSnakeHead) {
-            if (Game.snakeHead.getBoundsInParent().intersects(this.getBoundsInParent())) {
+            if (Game.snakeHead.getBoundsInParent().intersects(this.getBoundsInParent()) ||
+                    xPosition < 0 || xPosition > Globals.WINDOW_WIDTH - Globals.simpleEnemy.getWidth() ||
+                    yPosition < 0 || yPosition > Globals.WINDOW_HEIGHT - Globals.simpleEnemy.getHeight()) {
                 xPosition = rnd.nextDouble() * Globals.WINDOW_WIDTH;
                 yPosition = rnd.nextDouble() * Globals.WINDOW_HEIGHT;
             } else {
