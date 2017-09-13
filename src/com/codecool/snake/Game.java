@@ -12,9 +12,11 @@ import javafx.scene.layout.Pane;
 
 public class Game extends Pane {
 
+    public static SnakeHead snakeHead;
+
     public Game() {
 
-        SnakeHead snakeHead = new SnakeHead(this, Globals.STARTING_X, Globals.STARTING_Y);
+        snakeHead = new SnakeHead(this, Globals.STARTING_X, Globals.STARTING_Y);
 
         // Refactor (put into a for loop....)
         new SimpleEnemy(this);

@@ -1,5 +1,6 @@
 package com.codecool.snake.entities.enemies;
 
+import com.codecool.snake.Game;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
@@ -28,9 +29,23 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
 
         setImage(Globals.simpleEnemy);
         pane.getChildren().add(this);
+
+        // Enemy cannot spawn on the snakeHead.
         Random rnd = new Random();
-        setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
-        setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
+        double xPosition = rnd.nextDouble() * Globals.WINDOW_WIDTH;
+        double yPosition = rnd.nextDouble() * Globals.WINDOW_HEIGHT;
+
+        boolean isOnSnakeHead = true;
+        while (isOnSnakeHead) {
+            if (Game.snakeHead.getBoundsInParent().intersects(this.getBoundsInParent())) {
+                xPosition = rnd.nextDouble() * Globals.WINDOW_WIDTH;
+                yPosition = rnd.nextDouble() * Globals.WINDOW_HEIGHT;
+            } else {
+                isOnSnakeHead = !isOnSnakeHead;
+            }
+        }
+        setX(xPosition);
+        setY(yPosition);
 
         this.direction = rnd.nextDouble() * 360;
         setRotate(direction);
