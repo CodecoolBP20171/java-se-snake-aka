@@ -14,7 +14,7 @@ public class SnakeHead extends GameEntity implements Animatable {
     private static final float turnRate = 2; // must be 2
     private GameEntity tail; // the last element. Needed to know where to add the next part.
 
-    public SnakeHead(Pane pane, int xc, int yc) {
+    public SnakeHead(Pane pane, double xc, double yc) {
         super(pane);
         setX(xc);
         setY(yc);
@@ -39,6 +39,8 @@ public class SnakeHead extends GameEntity implements Animatable {
         Point2D heading = Utils.directionToVector(dir, speed);
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
+        Globals.snakeCurrentX = getX();
+        Globals.snakeCurrentY = getY();
 
         // check if collided with an enemy or a powerup
         for (GameEntity entity : Globals.getGameObjects()) {
