@@ -16,7 +16,8 @@ import java.util.List;
 import java.util.Random;
 
 // a simple enemy TODO make better ones.
-public class SimpleEnemy extends GameEntity implements Animatable, Interactable {
+public abstract class SimpleEnemy extends GameEntity implements Interactable {
+
     private Point2D heading;
     private static final int damage = 10;
     double direction;
@@ -26,7 +27,6 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
     public SimpleEnemy(Pane pane) {
         super(pane);
 
-        setImage(Globals.simpleEnemy);
         pane.getChildren().add(this);
 
         // Enemy cannot spawn on the snakeHead.
@@ -56,40 +56,20 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
         return enemies;
     }
 
-    @Override
-    public void step() {
-        if (isOutOfBounds()) {
-            if (getX() < 0 || getX() > (Globals.WINDOW_WIDTH-Globals.simpleEnemy.getWidth())) {
-                this.direction = 360 - getDirection();
-                heading = Utils.directionToVector(direction, speed);
-            } else if (getY() < 0 || getY() > (Globals.WINDOW_HEIGHT-Globals.simpleEnemy.getHeight())) {
-                if (getDirection() >= 180) {
-                    this.direction = 360 - getDirection() + 180;
-                    heading = Utils.directionToVector(direction, speed);
-                } else {
-                    this.direction = 180 - getDirection();
-                    heading = Utils.directionToVector(direction, speed);
-                }
-            } else {}
-        }
-        setX(getX() + heading.getX());
-        setY(getY() + heading.getY());
+    public Point2D getHeading() {
+        return heading;
+    }
+
+    public void setHeading(Point2D heading) {
+        this.heading = heading;
     }
 
     @Override
     public void apply(SnakeHead player) {
-        Globals.setHealth(-20);
-        destroy();
-        enemies.remove(this);
-        if (enemies.size() <=2){
-            SimpleEnemy enemy = new SimpleEnemy(pane);
-        }
     }
 
     @Override
-    public String getMessage() {
-        return "20 damage";
-    }
+    public String getMessage() { return " "; }
 
     public double getDirection() {
         return direction;
