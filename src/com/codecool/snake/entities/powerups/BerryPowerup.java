@@ -10,7 +10,7 @@ public class BerryPowerup extends SimplePowerup{
         super(pane);
         setImage(Globals.powerupBerry);
         Globals.setBerryCounter(1);
-        if(Globals.getBerryCounter() % 10 == 0){
+        if(Globals.getBerryCounter() % 2 == 0){
             HealthPowerup apple = new HealthPowerup(pane);
         }
     }
