@@ -10,7 +10,7 @@ import javafx.scene.layout.Pane;
 
 public class SnakeHead extends GameEntity implements Animatable {
 
-    private static final float speed = 2; // must be 2
+    private static float speed = 2; // must be 2
     private static final float turnRate = 2; // must be 2
     private GameEntity tail; // the last element. Needed to know where to add the next part.
 
@@ -45,6 +45,7 @@ public class SnakeHead extends GameEntity implements Animatable {
         // check if collided with an enemy or a powerup
         for (GameEntity entity : Globals.getGameObjects()) {
             if (getBoundsInParent().intersects(entity.getBoundsInParent())) {
+                System.out.println(getBoundsInParent());
                 if (entity instanceof Interactable) {
                     Interactable interactable = (Interactable) entity;
                     interactable.apply(this);
@@ -71,4 +72,8 @@ public class SnakeHead extends GameEntity implements Animatable {
     public void changeHealth(int diff) {
         Globals.setHealth(Globals.getHealth() + diff);
     }
+
+    public float getSpeed(){ return speed; }
+
+    public void setSpeed(float speed){ this.speed = speed; }
 }

@@ -1,19 +1,21 @@
-package com.codecool.snake.entities.powerups;
+package com.codecool.snake.entities.enemies;
 
+import com.codecool.snake.Game;
 import com.codecool.snake.Globals;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.scene.layout.Pane;
 
-public class PoisonPowerUp extends SimplePowerup{
+public class PoisonPowerUp extends SimpleEnemy {
 
     public PoisonPowerUp(Pane pane){
         super(pane);
-        setImage(Globals.powerupPoison);
+        setImage(Globals.enemyPoison);
     }
 
     @Override
     public void apply(SnakeHead snakeHead){
-        // health -= 5
+        Globals.setHealth(-5);
+        Game.snakeHead.setSpeed(Game.snakeHead.getSpeed()/2);
         destroy();
     }
 
