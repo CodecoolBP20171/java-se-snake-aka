@@ -14,7 +14,7 @@ public class Game extends Pane {
 
     public Game() {
 
-        SnakeHead snakeHead = new SnakeHead(this, 500, 500);
+        SnakeHead snakeHead = new SnakeHead(this, Globals.STARTING_X, Globals.STARTING_Y);
 
         // Refactor (put into a for loop....)
         new SimpleEnemy(this);
