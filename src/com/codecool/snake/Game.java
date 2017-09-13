@@ -2,6 +2,7 @@ package com.codecool.snake;
 
 import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.label.HealthText;
+import com.codecool.snake.entities.powerups.BerryPowerup;
 import com.codecool.snake.entities.powerups.PoisonPowerUp;
 import com.codecool.snake.entities.powerups.SimplePowerup;
 import com.codecool.snake.entities.snakes.SnakeHead;
@@ -13,7 +14,7 @@ public class Game extends Pane {
 
     public Game() {
 
-        SnakeHead snakeHead = new SnakeHead(this, 500, 500);
+        SnakeHead snakeHead = new SnakeHead(this, Globals.STARTING_X, Globals.STARTING_Y);
 
         // Refactor (put into a for loop....)
         new SimpleEnemy(this);
@@ -23,10 +24,7 @@ public class Game extends Pane {
 
         // Refactor (put into a for loop....)
         new PoisonPowerUp(this);
-        /*new SimplePowerup(this);
-        new SimplePowerup(this);
-        new SimplePowerup(this);
-        new SimplePowerup(this);*/
+        new BerryPowerup(this);
 
         new HealthText(this);
 
@@ -54,15 +52,18 @@ public class Game extends Pane {
     }
 
     public void menu(){
-        Globals.game = new Game();
-        Globals.gameObjects.clear();
-        Globals.primaryStage.setScene(new Scene(Globals.game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT));
-        Globals.primaryStage.show();
         Popup.display();
 
     }
 
     public void restart(){
+        SimpleEnemy.getEnemies().clear();
+        Globals.game = new Game();
+        System.out.println(SimpleEnemy.getEnemies().size());
+        Globals.gameObjects.clear();
+        Globals.restartHealth();
+        Globals.primaryStage.setScene(new Scene(Globals.game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT));
+        Globals.primaryStage.show();
         Globals.popUp.hide();
         Globals.game.start();
 
