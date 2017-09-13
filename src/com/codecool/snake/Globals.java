@@ -21,6 +21,9 @@ public class Globals {
     public static final double WINDOW_WIDTH = 1000;
     public static final double WINDOW_HEIGHT = 700;
 
+    public static final double STARTING_X = WINDOW_WIDTH/2;
+    public static final double STARTING_Y = WINDOW_HEIGHT/2;
+
     public static Image snakeHead = new Image("snake_head.png");
     public static Image snakeBody = new Image("snake_body.png");
     public static Image simpleEnemy = new Image("simple_enemy.png");
