@@ -10,7 +10,10 @@ public class GameLoop extends AnimationTimer {
     // This gets called every 1/60 seconds
     @Override
     public void handle(long now) {
-        if (FollowingEnemy.enemyCounter < 3 && Globals.getHealth() < 90) {
+        System.out.println(FollowingEnemy.enemyCounter);
+        System.out.println(FollowingEnemy);
+        if (FollowingEnemy.enemyCounter < 1 && Globals.getHealth() <= 80) {
+            System.out.println(FollowingEnemy.enemyCounter);
             Globals.game.createFollowingEnemy();
         }
 

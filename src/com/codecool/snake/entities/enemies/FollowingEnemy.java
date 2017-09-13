@@ -59,9 +59,9 @@ public class FollowingEnemy extends GameEntity implements Animatable, Interactab
         @Override
     public void apply(SnakeHead player) {
             destroy();
+            Globals.setHealth(-10);
             enemyCounter = 0;
-            Globals.gameLoop.stop();
-            Globals.game.menu();
+
     }
 
     @Override
