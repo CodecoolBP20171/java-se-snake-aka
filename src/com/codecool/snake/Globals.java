@@ -31,6 +31,7 @@ public class Globals {
     public static Image poisonEnemy = new Image("powerup_poison.png");
     public static Image apple = new Image("apple-icon.png");
     public static Image powerupCoffee = new Image("java-cofvefe.png");
+    public static Image followingEnemy = new Image("following_enemy.png");
     //.. put here the other images you want to use
 
     public static boolean leftKeyDown;

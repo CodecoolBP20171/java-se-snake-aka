@@ -2,17 +2,19 @@ package com.codecool.snake;
 
 import com.codecool.snake.entities.enemies.BasicEnemy;
 import com.codecool.snake.entities.enemies.PoisonEnemy;
+import com.codecool.snake.entities.enemies.FollowingEnemy;
 import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.label.HealthText;
 import com.codecool.snake.entities.powerups.BerryPowerup;
+import com.codecool.snake.entities.powerups.HealthPowerup;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import com.codecool.snake.popup.Popup;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
 public class Game extends Pane {
-
     public static SnakeHead snakeHead;
+
 
     public Game() {
 
@@ -24,10 +26,17 @@ public class Game extends Pane {
         new BasicEnemy(this);
         new BasicEnemy(this);
 
+
+
+        new HealthPowerup(this);
+        //new FollowingEnemy(this);
+
         // Refactor (put into a for loop....)
         new BerryPowerup(this);
 
         new HealthText(this);
+
+
 
 
 
@@ -62,7 +71,7 @@ public class Game extends Pane {
         Globals.game = new Game();
         System.out.println(SimpleEnemy.getEnemies().size());
         Globals.gameObjects.clear();
-        Globals.restartHealth();
+        Globals.restartHealth(); FollowingEnemy.enemyCounter = 0;
         Globals.setScore(0);
         SnakeHead.setSpeed(2);
         Globals.primaryStage.setScene(new Scene(Globals.game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT));
@@ -70,5 +79,9 @@ public class Game extends Pane {
         Globals.popUp.hide();
         Globals.game.start();
 
+    }
+
+    public void createFollowingEnemy() {
+            new FollowingEnemy(this);
     }
 }
