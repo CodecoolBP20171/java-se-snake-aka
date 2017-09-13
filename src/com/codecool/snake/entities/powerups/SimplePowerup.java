@@ -15,12 +15,12 @@ public abstract class SimplePowerup extends GameEntity implements Interactable {
         pane.getChildren().add(this);
 
         if (Globals.snakeCurrentX < Globals.WINDOW_WIDTH/2){
-            setX(ThreadLocalRandom.current().nextDouble(Globals.WINDOW_WIDTH/2, Globals.WINDOW_WIDTH));
+            setX(ThreadLocalRandom.current().nextDouble(Globals.WINDOW_WIDTH/2, (Globals.WINDOW_WIDTH-Globals.powerupBerry.getWidth())));
         } else {
             setX(ThreadLocalRandom.current().nextDouble(0, Globals.WINDOW_WIDTH/2));
         }
         if (Globals.snakeCurrentY < Globals.WINDOW_HEIGHT/2){
-            setY(ThreadLocalRandom.current().nextDouble(Globals.WINDOW_HEIGHT/2, Globals.WINDOW_HEIGHT));
+            setY(ThreadLocalRandom.current().nextDouble(Globals.WINDOW_HEIGHT/2, (Globals.WINDOW_HEIGHT-Globals.powerupBerry.getHeight())));
         } else {
             setY(ThreadLocalRandom.current().nextDouble(0, Globals.WINDOW_HEIGHT/2));
         }
