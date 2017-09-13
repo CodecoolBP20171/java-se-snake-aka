@@ -69,7 +69,6 @@ public class Game extends Pane {
     public void restart(){
         SimpleEnemy.getEnemies().clear();
         Globals.game = new Game();
-        System.out.println(SimpleEnemy.getEnemies().size());
         Globals.gameObjects.clear();
         Globals.restartHealth(); FollowingEnemy.enemyCounter = 0;
         Globals.setScore(0);

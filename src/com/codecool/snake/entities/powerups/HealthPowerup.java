@@ -23,8 +23,6 @@ public class HealthPowerup extends SimplePowerup implements Animatable{
         } else {
             Globals.setScore(Globals.getScore() + 5);
         }
-        System.out.println(Globals.getScore());
-
         destroy();
     }
     @Override
