@@ -59,6 +59,9 @@ public class Globals {
     public static void setHealth(int health) {
         Globals.health += health;
     }
+    public static void restartHealth(){
+        Globals.health = 100;
+    }
 
     public static void setScore(int score) { Globals.score = score; }
 
