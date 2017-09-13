@@ -5,10 +5,13 @@ import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.Utils;
 import com.codecool.snake.entities.Interactable;
+import com.codecool.snake.entities.powerups.SimplePowerup;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 // a simple enemy TODO make better ones.
@@ -18,6 +21,7 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
     private static final int damage = 10;
     double direction;
     int speed = 3;
+    private static List enemies = new ArrayList<SimpleEnemy>();
 
     public SimpleEnemy(Pane pane) {
         super(pane);
@@ -31,6 +35,11 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
         this.direction = rnd.nextDouble() * 360;
         setRotate(direction);
         heading = Utils.directionToVector(direction, speed);
+        enemies.add(this);
+    }
+
+    public static List getEnemies() {
+        return enemies;
     }
 
     @Override
@@ -55,13 +64,17 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
 
     @Override
     public void apply(SnakeHead player) {
-        Globals.setHealth(-10);
+        Globals.setHealth(-20);
         destroy();
+        enemies.remove(this);
+        if (enemies.size() <=2){
+            SimpleEnemy enemy = new SimpleEnemy(pane);
+        }
     }
 
     @Override
     public String getMessage() {
-        return "10 damage";
+        return "20 damage";
     }
 
     public double getDirection() {
