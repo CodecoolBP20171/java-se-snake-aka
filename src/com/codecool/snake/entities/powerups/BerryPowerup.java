@@ -9,6 +9,10 @@ public class BerryPowerup extends SimplePowerup{
     public BerryPowerup(Pane pane){
         super(pane);
         setImage(Globals.powerupBerry);
+        Globals.setBerryCounter(1);
+        if(Globals.getBerryCounter() % 10 == 0){
+            HealthPowerup apple = new HealthPowerup(pane);
+        }
     }
 
     @Override
@@ -17,10 +21,13 @@ public class BerryPowerup extends SimplePowerup{
         destroy();
         //For testTD only, because later we'll need "bogyó"
         Globals.setScore(Globals.getScore() + 10);
+        BerryPowerup berry = new BerryPowerup(pane);
     }
 
     @Override
     public String getMessage() {
         return "Got power-up :)";
     }
+
+
 }
