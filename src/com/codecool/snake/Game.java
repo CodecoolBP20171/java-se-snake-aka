@@ -10,7 +10,8 @@ import com.codecool.snake.entities.powerups.HealthPowerup;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import com.codecool.snake.popup.Popup;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 
 public class Game extends Pane {
     public static SnakeHead snakeHead;
@@ -18,6 +19,7 @@ public class Game extends Pane {
 
     public Game() {
 
+        setTableBackground(new Image("ezgif.gif"));
         snakeHead = new SnakeHead(this, Globals.STARTING_X, Globals.STARTING_Y);
 
         // Refactor (put into a for loop....)
@@ -83,5 +85,11 @@ public class Game extends Pane {
 
     public void createFollowingEnemy() {
             new FollowingEnemy(this);
+    }
+
+    public void setTableBackground(Image tableBackground) {
+        setBackground(new Background(new BackgroundImage(tableBackground,
+                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
+                BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
     }
 }
