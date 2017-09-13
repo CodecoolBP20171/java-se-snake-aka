@@ -22,7 +22,7 @@ abstract public class Popup extends Application{
 
         Label label = new Label();
 
-        Text score = new Text("Your score: " + Globals.getScore()); //+Globals.score
+        Text score = new Text("Your score: "+Globals.getScore()); //+Globals.score
 
         Button restart = new Button("Restart");
         Button exit = new Button("Exit");
