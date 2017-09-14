@@ -20,6 +20,7 @@ public class FollowingEnemy extends GameEntity implements Animatable, Interactab
     public static int enemyCounter = 0;
     public static long startTime;
     private long aliveTime = 0;
+    private static final int damage = -10;
 
 
     public FollowingEnemy(Pane pane) {
@@ -49,7 +50,7 @@ public class FollowingEnemy extends GameEntity implements Animatable, Interactab
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
         aliveTime = System.currentTimeMillis() - startTime;
-        if (aliveTime > 15000) {
+        if (aliveTime > Globals.defaultWaitTime) {
             aliveTime = 0;
             enemyCounter = 0;
             destroy();
@@ -60,7 +61,7 @@ public class FollowingEnemy extends GameEntity implements Animatable, Interactab
         @Override
     public void apply(SnakeHead player) {
             destroy();
-            Globals.setHealth(-10);
+            Globals.setHealth(damage);
             enemyCounter = 0;
 
     }

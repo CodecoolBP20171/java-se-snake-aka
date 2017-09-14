@@ -6,10 +6,11 @@ import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.scene.layout.Pane;
 
 
-public class HealthPowerup extends SimplePowerup implements Animatable{
+public class HealthPowerup extends AbstractPowerup implements Animatable{
 
     long spawnTime;
     long aliveTime;
+    private static final int heal = 20;
 
     public HealthPowerup(Pane pane){
         super(pane);
@@ -18,10 +19,14 @@ public class HealthPowerup extends SimplePowerup implements Animatable{
     }
     @Override
     public void apply(SnakeHead snakeHead){
-        if(Globals.getHealth() < 100){
-            Globals.setHealth(20);
-        } else {
+        if (Globals.getHealth() == Globals.maxHealth){
             Globals.setScore(Globals.getScore() + 5);
+        }
+        if(Globals.getHealth() <= Globals.maxHealth-heal){
+            Globals.setHealth(heal);
+
+        } else {
+            Globals.restartHealth();
         }
         destroy();
     }
@@ -32,7 +37,7 @@ public class HealthPowerup extends SimplePowerup implements Animatable{
 
     public void step(){
         aliveTime = System.currentTimeMillis() - spawnTime;
-        if (aliveTime > 10000){
+        if (aliveTime > Globals.defaultWaitTime){
             destroy();
         }
     }

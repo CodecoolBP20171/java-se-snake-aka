@@ -16,6 +16,10 @@ public class Globals {
     private static int score = 0;
     private static int health = 100;
     private static int berryCounter = 0;
+    private static final int fullHealth = 100;
+    public static final int defaultWaitTime = 15000;
+    public static final int defaultSpeed = 2;
+    public static final int maxHealth = 100;
 
 
     public static final double WINDOW_WIDTH = 1000;
@@ -43,9 +47,6 @@ public class Globals {
     public static Stage primaryStage;public static Stage popUp;
     public static Game game;
 
-    public static double snakeCurrentX;
-    public static double snakeCurrentY;
-
     static {
         gameObjects = new LinkedList<>();
         newGameObjects = new LinkedList<>();
@@ -68,10 +69,10 @@ public class Globals {
         Globals.health += health;
     }
     public static void restartHealth(){
-        Globals.health = 100;
+        Globals.health = fullHealth;
     }
 
-    public static void setScore(int score) { Globals.score = score; }
+    public static void setScore(int score) { Globals.score = Globals.getScore() + score; }
 
     public static int getScore() { return score; }
 

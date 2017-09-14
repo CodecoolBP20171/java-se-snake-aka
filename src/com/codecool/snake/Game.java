@@ -1,9 +1,8 @@
 package com.codecool.snake;
 
 import com.codecool.snake.entities.enemies.BasicEnemy;
-import com.codecool.snake.entities.enemies.PoisonEnemy;
 import com.codecool.snake.entities.enemies.FollowingEnemy;
-import com.codecool.snake.entities.enemies.SimpleEnemy;
+import com.codecool.snake.entities.enemies.AbstractEnemy;
 import com.codecool.snake.entities.label.HealthText;
 import com.codecool.snake.entities.powerups.BerryPowerup;
 import com.codecool.snake.entities.powerups.HealthPowerup;
@@ -69,12 +68,12 @@ public class Game extends Pane {
     }
 
     public void restart(){
-        SimpleEnemy.getEnemies().clear();
+        AbstractEnemy.getEnemies().clear();
         Globals.game = new Game();
         Globals.gameObjects.clear();
         Globals.restartHealth(); FollowingEnemy.enemyCounter = 0;
         Globals.setScore(0);
-        SnakeHead.setSpeed(2);
+        SnakeHead.setSpeed(Globals.defaultSpeed);
         Globals.primaryStage.setScene(new Scene(Globals.game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT));
         Globals.primaryStage.show();
         Globals.popUp.hide();

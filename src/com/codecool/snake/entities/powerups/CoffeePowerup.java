@@ -5,7 +5,7 @@ import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.scene.layout.Pane;
 
-public class CoffeePowerup extends SimplePowerup implements Interactable{
+public class CoffeePowerup extends AbstractPowerup implements Interactable{
 
     public CoffeePowerup(Pane pane) {
         super(pane);
