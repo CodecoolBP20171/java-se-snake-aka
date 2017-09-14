@@ -13,6 +13,7 @@ public class BasicEnemy extends AbstractEnemy implements Animatable{
     public BasicEnemy(Pane pane){
         super(pane);
         setImage(Globals.simpleEnemy);
+        addEnemy(this);
     }
 
     @Override
@@ -20,9 +21,6 @@ public class BasicEnemy extends AbstractEnemy implements Animatable{
         Globals.setHealth(damage);
         destroy();
         getEnemies().remove(this);
-        if (getEnemies().size() <=2){
-           new BasicEnemy(pane);
-        }
     }
 
     @Override

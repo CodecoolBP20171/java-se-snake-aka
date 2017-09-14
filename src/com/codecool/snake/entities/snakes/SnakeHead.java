@@ -10,9 +10,10 @@ import javafx.scene.layout.Pane;
 
 public class SnakeHead extends GameEntity implements Animatable {
 
-    private static float speed = 2; // must be 2
-    private static final float turnRate = 2; // must be 2
-    private GameEntity tail; // the last element. Needed to know where to add the next part.
+    private GameEntity tail;
+    private static float speed = 2;
+    private static final float turnRate = 2;
+    private static final int defaultLength = 4;
 
     public SnakeHead(Pane pane, double xc, double yc) {
         super(pane);
@@ -22,25 +23,20 @@ public class SnakeHead extends GameEntity implements Animatable {
         setImage(Globals.snakeHead);
         pane.getChildren().add(this);
 
-        addPart(4);
+        addPart(defaultLength);
     }
 
 
     public void step() {
         double dir = getRotate();
-        if (Globals.leftKeyDown) {
-            dir = dir - turnRate;
-        }
-        if (Globals.rightKeyDown) {
-            dir = dir + turnRate;
-        }
-        // set rotation and position
+        if (Globals.leftKeyDown) dir = dir - turnRate;
+        if (Globals.rightKeyDown) dir = dir + turnRate;
+
         setRotate(dir);
         Point2D heading = Utils.directionToVector(dir, speed);
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
 
-        // check if collided with an enemy or a powerup
         for (GameEntity entity : Globals.getGameObjects()) {
             if (getBoundsInParent().intersects(entity.getBoundsInParent())) {
                 if (entity instanceof Interactable) {
@@ -51,7 +47,6 @@ public class SnakeHead extends GameEntity implements Animatable {
             }
         }
 
-        // check for game over condition
         if (isOutOfBounds() || Globals.getHealth() <= 0) {
             System.out.println("Game Over");
             Globals.gameLoop.stop();
@@ -64,10 +59,6 @@ public class SnakeHead extends GameEntity implements Animatable {
             SnakeBody newPart = new SnakeBody(pane, tail);
             tail = newPart;
         }
-    }
-
-    public void changeHealth(int diff) {
-        Globals.setHealth(Globals.getHealth() + diff);
     }
 
     public static float getSpeed() {

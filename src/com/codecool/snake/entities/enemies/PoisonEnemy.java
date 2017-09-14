@@ -11,6 +11,7 @@ public class PoisonEnemy extends AbstractEnemy {
 
     public PoisonEnemy(Pane pane){
         super(pane);
+        Globals.isPoison = true;
         setImage(Globals.poisonEnemy);
     }
 
@@ -19,6 +20,7 @@ public class PoisonEnemy extends AbstractEnemy {
         Globals.setHealth(damage);
         SnakeHead.setSpeed(SnakeHead.getSpeed()/2);
         new CoffeePowerup(pane);
+        Globals.isPoison = false;
         destroy();
     }
 

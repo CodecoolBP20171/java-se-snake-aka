@@ -9,19 +9,11 @@ public class BerryPowerup extends AbstractPowerup {
 
     private static final int extraParts = 4;
     private static final int extraScore = 10;
-    private static final int nextStage = 150;
-    private static final int nextHealthPowerUpTurn = 10;
 
     public BerryPowerup(Pane pane){
         super(pane);
         setImage(Globals.powerupBerry);
         Globals.setBerryCounter(1);
-        if(Globals.getBerryCounter() % nextHealthPowerUpTurn == 0){
-            new HealthPowerup(pane);
-        }
-        if (Globals.getScore() % nextStage == 0 || Globals.getScore() % nextStage == 5){ //belenyúltam, elvileg így jó
-            new PoisonEnemy(pane);
-        }
     }
 
     @Override

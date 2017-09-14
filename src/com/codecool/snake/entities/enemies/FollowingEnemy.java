@@ -14,12 +14,12 @@ import java.util.Random;
 
 public class FollowingEnemy extends AbstractEnemy implements Animatable{
 
+    private int speed = 1;
     private Point2D heading;
     private double direction;
-    private int speed = 1;
-    public static int enemyCounter = 0;
-    public static long startTime;
     private long aliveTime = 0;
+    public static long startTime;
+    public static int enemyCounter = 0;
     private static final int damage = -10;
 
 

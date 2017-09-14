@@ -17,19 +17,17 @@ public class HealthPowerup extends AbstractPowerup implements Animatable{
         setImage(Globals.apple);
         spawnTime = System.currentTimeMillis();
     }
+
     @Override
     public void apply(SnakeHead snakeHead){
-        if (Globals.getHealth() == Globals.maxHealth){
-            Globals.setScore(Globals.getScore() + 5);
-        }
-        if(Globals.getHealth() <= Globals.maxHealth-heal){
-            Globals.setHealth(heal);
+        if (Globals.getHealth() == Globals.maxHealth) Globals.setScore(Globals.getScore() + 5);
 
-        } else {
-            Globals.restartHealth();
-        }
+        if(Globals.getHealth() <= Globals.maxHealth-heal){ Globals.setHealth(heal); }
+        else Globals.restartHealth();
+
         destroy();
     }
+
     @Override
     public String getMessage(){
         return "Got health";
@@ -37,8 +35,6 @@ public class HealthPowerup extends AbstractPowerup implements Animatable{
 
     public void step(){
         aliveTime = System.currentTimeMillis() - spawnTime;
-        if (aliveTime > Globals.defaultWaitTime){
-            destroy();
-        }
+        if (aliveTime > Globals.defaultWaitTime) destroy();
     }
 }

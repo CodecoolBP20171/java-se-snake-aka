@@ -17,7 +17,6 @@ import java.util.Random;
 public abstract class AbstractEnemy extends GameEntity implements Interactable {
 
     private Point2D heading;
-    private static final int damage = 10;
     double direction;
     int speed = 3;
     private static List enemies = new ArrayList<AbstractEnemy>();
@@ -48,12 +47,9 @@ public abstract class AbstractEnemy extends GameEntity implements Interactable {
         this.direction = rnd.nextDouble() * 360;
         setRotate(direction);
         heading = Utils.directionToVector(direction, speed);
-        enemies.add(this);
     }
 
-    public static List getEnemies() {
-        return enemies;
-    }
+    public static List getEnemies() { return enemies; }
 
     public Point2D getHeading() {
         return heading;
@@ -64,8 +60,7 @@ public abstract class AbstractEnemy extends GameEntity implements Interactable {
     }
 
     @Override
-    public void apply(SnakeHead player) {
-    }
+    public void apply(SnakeHead player) { }
 
     @Override
     public String getMessage() { return " "; }
@@ -73,4 +68,6 @@ public abstract class AbstractEnemy extends GameEntity implements Interactable {
     public double getDirection() {
         return direction;
     }
+
+    public void addEnemy(AbstractEnemy enemy){ enemies.add(enemy); }
 }
