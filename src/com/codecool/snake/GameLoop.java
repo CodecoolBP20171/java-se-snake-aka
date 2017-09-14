@@ -13,7 +13,7 @@ public class GameLoop extends AnimationTimer {
     public void handle(long now) {
         if (FollowingEnemy.enemyCounter < 1 && Globals.getHealth() >= 50) Globals.game.createFollowingEnemy();
 
-        if(Globals.getBerryCounter() % Globals.nextHealthPowerUpTurn == 0) Globals.game.createHealthPowerUp();
+        if(Globals.getBerryCounter() % Globals.nextHealthPowerUpTurn == 0 && !Globals.isHealth) Globals.game.createHealthPowerUp();
 
         if (!Globals.isPoison) Globals.game.createPoisonEnemy();
 

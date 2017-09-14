@@ -11,6 +11,7 @@ public class BerryPowerup extends AbstractPowerup {
 
     public BerryPowerup(Pane pane){
         super(pane);
+        Globals.isHealth = true;
         setImage(Globals.powerupBerry);
         Globals.setBerryCounter(1);
     }
@@ -18,6 +19,7 @@ public class BerryPowerup extends AbstractPowerup {
     @Override
     public void apply(SnakeHead snakeHead) {
         snakeHead.addPart(extraParts);
+        Globals.isHealth = false;
         destroy();
         //For testTD only, because later we'll need "bogyó"
         Globals.setScore(extraScore);
