@@ -10,38 +10,33 @@ import javafx.scene.layout.Pane;
 
 public class SnakeHead extends GameEntity implements Animatable {
 
-    private static final float speed = 2;
+    private GameEntity tail;
+    private static float speed = 2;
     private static final float turnRate = 2;
-    private GameEntity tail; // the last element. Needed to know where to add the next part.
-    private int health;
+    private static final int defaultLength = 4;
 
-    public SnakeHead(Pane pane, int xc, int yc) {
+    public SnakeHead(Pane pane, double xc, double yc) {
         super(pane);
         setX(xc);
         setY(yc);
-        health = 100;
         tail = this;
         setImage(Globals.snakeHead);
         pane.getChildren().add(this);
 
-        addPart(4);
+        addPart(defaultLength);
     }
+
 
     public void step() {
         double dir = getRotate();
-        if (Globals.leftKeyDown) {
-            dir = dir - turnRate;
-        }
-        if (Globals.rightKeyDown) {
-            dir = dir + turnRate;
-        }
-        // set rotation and position
+        if (Globals.leftKeyDown) dir = dir - turnRate;
+        if (Globals.rightKeyDown) dir = dir + turnRate;
+
         setRotate(dir);
         Point2D heading = Utils.directionToVector(dir, speed);
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
 
-        // check if collided with an enemy or a powerup
         for (GameEntity entity : Globals.getGameObjects()) {
             if (getBoundsInParent().intersects(entity.getBoundsInParent())) {
                 if (entity instanceof Interactable) {
@@ -52,10 +47,10 @@ public class SnakeHead extends GameEntity implements Animatable {
             }
         }
 
-        // check for game over condition
-        if (isOutOfBounds() || health <= 0) {
+        if (isOutOfBounds() || Globals.getHealth() <= 0) {
             System.out.println("Game Over");
             Globals.gameLoop.stop();
+            Globals.game.menu();
         }
     }
 
@@ -66,7 +61,11 @@ public class SnakeHead extends GameEntity implements Animatable {
         }
     }
 
-    public void changeHealth(int diff) {
-        health += diff;
+    public static float getSpeed() {
+        return speed;
+    }
+
+    public static void setSpeed(float speed) {
+        SnakeHead.speed = speed;
     }
 }
