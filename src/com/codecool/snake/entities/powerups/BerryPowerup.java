@@ -11,7 +11,6 @@ public class BerryPowerup extends AbstractPowerup {
 
     public BerryPowerup(Pane pane){
         super(pane);
-        Globals.isHealth = true;
         setImage(Globals.powerupBerry);
         Globals.setBerryCounter(1);
     }
