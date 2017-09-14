@@ -25,7 +25,7 @@ public class BasicEnemy extends AbstractEnemy implements Animatable{
 
     @Override
     public String getMessage() {
-        return super.getMessage();
+        return "HAHAAA";
     }
 
     @Override
