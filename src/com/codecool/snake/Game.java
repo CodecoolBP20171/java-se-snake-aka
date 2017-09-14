@@ -30,6 +30,8 @@ public class Game extends Pane {
         createHealthPowerUp();
         createBerryPowerUp();
         createHealthPowerUp();
+        createHelthText();
+
     }
 
     public void start() {
@@ -77,6 +79,8 @@ public class Game extends Pane {
     public void createPoisonEnemy(){ new PoisonEnemy(this); }
 
     public void createBasicEnemy(){ new BasicEnemy(this); }
+
+    public void createHelthText(){ new HealthText(this); }
 
     public void setTableBackground(Image tableBackground) {
         setBackground(new Background(new BackgroundImage(tableBackground,

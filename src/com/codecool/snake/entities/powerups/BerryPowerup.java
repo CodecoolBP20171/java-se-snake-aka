@@ -1,7 +1,6 @@
 package com.codecool.snake.entities.powerups;
 
 import com.codecool.snake.Globals;
-import com.codecool.snake.entities.enemies.PoisonEnemy;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.scene.layout.Pane;
 

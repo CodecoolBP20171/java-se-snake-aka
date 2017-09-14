@@ -3,10 +3,7 @@ package com.codecool.snake;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.enemies.AbstractEnemy;
-import com.codecool.snake.entities.enemies.BasicEnemy;
 import com.codecool.snake.entities.enemies.FollowingEnemy;
-import com.codecool.snake.entities.enemies.PoisonEnemy;
-import com.codecool.snake.entities.powerups.HealthPowerup;
 import javafx.animation.AnimationTimer;
 
 public class GameLoop extends AnimationTimer {
