@@ -11,7 +11,6 @@ public class GameLoop extends AnimationTimer {
     @Override
     public void handle(long now) {
         if (FollowingEnemy.enemyCounter < 1 && Globals.getHealth() >= 50) {
-            System.out.println(FollowingEnemy.enemyCounter);
             Globals.game.createFollowingEnemy();
         }
 
