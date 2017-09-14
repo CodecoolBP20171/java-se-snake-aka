@@ -74,7 +74,7 @@ public class Game extends Pane {
 
     public void createFollowingEnemy() { new FollowingEnemy(this); }
 
-    public void createHealthPowerUp(){ new HealthPowerup(this); }
+    public void createHealthPowerUp(){ new HealthPowerup(this); Globals.isHealth = true; }
 
     public void createPoisonEnemy(){ new PoisonEnemy(this); }
 
