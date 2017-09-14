@@ -20,6 +20,8 @@ public class Globals {
 
     public static final double WINDOW_WIDTH = 1000;
     public static final double WINDOW_HEIGHT = 700;
+    public static final double RULES_WINDOW_WIDTH = 700;
+    public static final double RULES_WINDOW_HEIGHT = 600;
 
     public static final double STARTING_X = WINDOW_WIDTH/2;
     public static final double STARTING_Y = WINDOW_HEIGHT/2;
@@ -32,6 +34,7 @@ public class Globals {
     public static Image apple = new Image("apple-icon.png");
     public static Image powerupCoffee = new Image("java-cofvefe.png");
     public static Image followingEnemy = new Image("following_enemy.png");
+    public static Image startButton = new Image("start-button.png");
     //.. put here the other images you want to use
 
     public static boolean leftKeyDown;
@@ -40,8 +43,10 @@ public class Globals {
     public static List<GameEntity> newGameObjects; // Holds game objects crated in this frame.
     public static List<GameEntity> oldGameObjects; // Holds game objects that will be destroyed this frame.
     public static GameLoop gameLoop;
-    public static Stage primaryStage;public static Stage popUp;
+    public static Stage primaryStage;
+    public static Stage popUp;
     public static Game game;
+    public static Rules rulesScene;
 
     public static double snakeCurrentX;
     public static double snakeCurrentY;
