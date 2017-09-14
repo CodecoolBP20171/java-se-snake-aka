@@ -19,7 +19,7 @@ public class BasicEnemy extends SimpleEnemy implements Animatable{
         destroy();
         getEnemies().remove(this);
         if (getEnemies().size() <=2){
-            SimpleEnemy enemy = new BasicEnemy(pane);
+           new BasicEnemy(pane);
         }
     }
 
