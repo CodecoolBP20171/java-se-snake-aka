@@ -34,7 +34,9 @@ public class Game extends Pane {
     }
 
     public void start() {
-        Scene scene = getScene();
+
+        Scene scene = new Scene(Globals.game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT);
+        Globals.primaryStage.setScene(scene);
         scene.setOnKeyPressed(event -> {
             switch (event.getCode()) {
                 case LEFT:  Globals.leftKeyDown  = true; break;
