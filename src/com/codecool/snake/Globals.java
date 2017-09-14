@@ -14,8 +14,14 @@ import java.util.List;
 public class Globals {
 
     private static int score = 0;
+    public static boolean isPoison;
     private static int health = 100;
     private static int berryCounter = 0;
+    public static final int maxHealth = 100;
+    public static final int defaultSpeed = 2;
+    private static final int fullHealth = 100;
+    public static final int defaultWaitTime = 15000;
+    public static final int nextHealthPowerUpTurn = 10;
 
 
     public static final double WINDOW_WIDTH = 1000;
@@ -32,7 +38,6 @@ public class Globals {
     public static Image apple = new Image("apple-icon.png");
     public static Image powerupCoffee = new Image("java-cofvefe.png");
     public static Image followingEnemy = new Image("following_enemy.png");
-    //.. put here the other images you want to use
 
     public static boolean leftKeyDown;
     public static boolean rightKeyDown;
@@ -43,37 +48,26 @@ public class Globals {
     public static Stage primaryStage;public static Stage popUp;
     public static Game game;
 
-    public static double snakeCurrentX;
-    public static double snakeCurrentY;
-
     static {
         gameObjects = new LinkedList<>();
         newGameObjects = new LinkedList<>();
         oldGameObjects = new LinkedList<>();
     }
 
-    public static int getBerryCounter() {
-        return berryCounter;
-    }
+    public static int getBerryCounter() { return berryCounter; }
 
-    public static void setBerryCounter(int berryCounter) {
-        Globals.berryCounter += berryCounter;
-    }
+    public static void setBerryCounter(int berryCounter) { Globals.berryCounter += berryCounter; }
 
-    public static int getHealth() {
-        return health;
-    }
+    public static int getHealth() { return health; }
 
-    public static void setHealth(int health) {
-        Globals.health += health;
-    }
-    public static void restartHealth(){
-        Globals.health = 100;
-    }
+    public static void setHealth(int health) { Globals.health += health; }
+    public static void restartHealth(){ Globals.health = fullHealth; }
 
-    public static void setScore(int score) { Globals.score = score; }
+    public static void setScore(int score) { Globals.score = Globals.getScore() + score; }
 
     public static int getScore() { return score; }
+
+    public static void resetScore(){ Globals.score = 0;}
 
     public static void addGameObject(GameEntity toAdd) {
         newGameObjects.add(toAdd);

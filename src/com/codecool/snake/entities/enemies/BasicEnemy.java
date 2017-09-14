@@ -6,21 +6,21 @@ import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.scene.layout.Pane;
 
-public class BasicEnemy extends SimpleEnemy implements Animatable{
+public class BasicEnemy extends AbstractEnemy implements Animatable{
+
+    private static final int damage = -20;
 
     public BasicEnemy(Pane pane){
         super(pane);
         setImage(Globals.simpleEnemy);
+        addEnemy(this);
     }
 
     @Override
     public void apply(SnakeHead player) {
-        Globals.setHealth(-20);
+        Globals.setHealth(damage);
         destroy();
         getEnemies().remove(this);
-        if (getEnemies().size() <=2){
-           new BasicEnemy(pane);
-        }
     }
 
     @Override
