@@ -13,6 +13,7 @@ public class Globals {
 
     private static int score = 0;
     public static boolean isPoison;
+    public static boolean isHealth;
     private static int health = 100;
     private static int berryCounter = 0;
     public static final int maxHealth = 100;
