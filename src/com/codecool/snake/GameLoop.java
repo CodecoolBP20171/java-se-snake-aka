@@ -20,7 +20,7 @@ public class GameLoop extends AnimationTimer {
 
         if (!Globals.isPoison) Globals.game.createPoisonEnemy();
 
-        if (AbstractEnemy.getEnemies().size() <=2) Globals.game.createBasicEnemy();
+        if (AbstractEnemy.getEnemies().size() < 2) Globals.game.createBasicEnemy();
 
         for (GameEntity gameObject : Globals.gameObjects) {
             if (gameObject instanceof Animatable) {

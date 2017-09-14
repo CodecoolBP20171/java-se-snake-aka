@@ -15,7 +15,7 @@ import javafx.scene.layout.*;
 
 public class Game extends Pane {
     public static SnakeHead snakeHead;
-    private static int defaultBasicEnemy = 4;
+    private static int defaultBasicEnemy = 3;
 
 
     public Game() {
