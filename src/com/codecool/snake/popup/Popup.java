@@ -22,7 +22,7 @@ abstract public class Popup extends Application{
 
         Label label = new Label();
 
-        Text score = new Text("Your score: "+Globals.score);
+        Text score = new Text("Your score: "+Globals.getScore()); //+Globals.score
 
         Button restart = new Button("Restart");
         Button exit = new Button("Exit");
@@ -31,7 +31,7 @@ abstract public class Popup extends Application{
         exit.setOnAction(e -> System.exit(0));
 
         VBox layout = new VBox(10);
-        layout.getChildren().addAll(label, score,restart, exit);
+        layout.getChildren().addAll(label, score, restart, exit);
         layout.setAlignment(Pos.CENTER);
         Scene scene1 = new Scene(layout, 300, 300);
         Globals.popUp.setScene(scene1);
