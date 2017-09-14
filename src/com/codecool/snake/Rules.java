@@ -1,8 +1,11 @@
 package com.codecool.snake;
 
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -15,18 +18,32 @@ public class Rules extends Pane {
     }
 
     public void showRules(Stage primaryStage){
-        setTableBackground(new Image("rules.jpg"));
-        ImageView buttonView = new ImageView(Globals.startButton);
+
+
         Globals.rulesScene = new Rules();
         Globals.primaryStage = primaryStage;
         Globals.primaryStage.setTitle("Rules");
-        Button startButton = new Button("", buttonView);
-        Globals.primaryStage.setScene(new Scene(startButton, Globals.RULES_WINDOW_WIDTH, Globals.RULES_WINDOW_HEIGHT));
-        Globals.primaryStage.show();
-        startButton.setOnAction(actionEvent -> {
-            Globals.game = new Game();
-            Globals.game.start();
+
+
+        setTableBackground(new Image("rules2.jpg"));
+        Scene scene = new Scene(this, Globals.RULES_WINDOW_WIDTH, Globals.RULES_WINDOW_HEIGHT);
+
+        Globals.primaryStage.setScene(scene);
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                switch (event.getCode()){
+                    case ENTER:
+                        Globals.game = new Game();
+                        Globals.game.start();
+                        break;
+                    case ESCAPE:
+                        System.exit(0);
+                        break;
+                }
+            }
         });
+        Globals.primaryStage.show();
     }
 
     public void setTableBackground(Image tableBackground) {

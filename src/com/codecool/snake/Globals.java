@@ -20,8 +20,8 @@ public class Globals {
 
     public static final double WINDOW_WIDTH = 1000;
     public static final double WINDOW_HEIGHT = 700;
-    public static final double RULES_WINDOW_WIDTH = 700;
-    public static final double RULES_WINDOW_HEIGHT = 600;
+    public static final double RULES_WINDOW_WIDTH = 491;
+    public static final double RULES_WINDOW_HEIGHT = 700;
 
     public static final double STARTING_X = WINDOW_WIDTH/2;
     public static final double STARTING_Y = WINDOW_HEIGHT/2;
