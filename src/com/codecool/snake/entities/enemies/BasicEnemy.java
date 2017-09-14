@@ -44,6 +44,7 @@ public class BasicEnemy extends AbstractEnemy implements Animatable{
                 }
             } else {}
         }
+        setRotate(direction);
         setX(getX() + getHeading().getX());
         setY(getY() + getHeading().getY());
     }

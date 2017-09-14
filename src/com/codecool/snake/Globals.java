@@ -29,14 +29,14 @@ public class Globals {
     public static final double STARTING_X = WINDOW_WIDTH/2;
     public static final double STARTING_Y = WINDOW_HEIGHT/2;
 
-    public static Image snakeHead = new Image("snake_head.png");
-    public static Image snakeBody = new Image("snake_body.png");
-    public static Image simpleEnemy = new Image("simple_enemy.png");
+    public static Image snakeHead = new Image("python.png");
+    public static Image snakeBody = new Image("python_body.png");
+    public static Image simpleEnemy = new Image("html3.png");
     public static Image powerupBerry = new Image("powerup_berry.png");
     public static Image poisonEnemy = new Image("powerup_poison.png");
     public static Image apple = new Image("apple-icon.png");
     public static Image powerupCoffee = new Image("java-cofvefe.png");
-    public static Image followingEnemy = new Image("following_enemy.png");
+    public static Image followingEnemy = new Image("css2.png");
 
     public static boolean leftKeyDown;
     public static boolean rightKeyDown;
