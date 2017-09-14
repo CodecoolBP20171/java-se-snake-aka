@@ -27,7 +27,6 @@ public class Game extends Pane {
             createBasicEnemy();
         }
 
-        createHealthPowerUp();
         createBerryPowerUp();
         createHealthPowerUp();
         createHelthText();
@@ -60,6 +59,7 @@ public class Game extends Pane {
         Globals.game = new Game();
         Globals.gameObjects.clear();
         Globals.leftKeyDown = false; Globals.rightKeyDown = false;
+        Globals.isHealth = false; Globals.isPoison = false;
         Globals.restartHealth(); FollowingEnemy.enemyCounter = 0;
         Globals.resetScore();
         SnakeHead.setSpeed(Globals.defaultSpeed);
