@@ -22,7 +22,7 @@ public class BerryPowerup extends AbstractPowerup {
         destroy();
         //For testTD only, because later we'll need "bogyó"
         Globals.setScore(extraScore);
-        new BerryPowerup(pane);
+        Globals.game.createBerryPowerUp();
     }
 
     @Override

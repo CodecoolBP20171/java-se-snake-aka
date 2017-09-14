@@ -24,12 +24,12 @@ public class Game extends Pane {
         snakeHead = new SnakeHead(this, Globals.STARTING_X, Globals.STARTING_Y);
 
         for (int basicEnemyNr = 0; basicEnemyNr < defaultBasicEnemy; basicEnemyNr++) {
-            new BasicEnemy(this);
+            createBasicEnemy();
         }
 
-        new HealthPowerup(this);
-        new BerryPowerup(this);
-        new HealthText(this);
+        createHealthPowerUp();
+        createBerryPowerUp();
+        createHealthPowerUp();
     }
 
     public void start() {
@@ -67,6 +67,8 @@ public class Game extends Pane {
         Globals.game.start();
 
     }
+
+    public void createBerryPowerUp(){ new BerryPowerup(this); }
 
     public void createFollowingEnemy() { new FollowingEnemy(this); }
 
