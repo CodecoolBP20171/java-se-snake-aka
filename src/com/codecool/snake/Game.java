@@ -72,7 +72,7 @@ public class Game extends Pane {
         Globals.game = new Game();
         Globals.gameObjects.clear();
         Globals.restartHealth(); FollowingEnemy.enemyCounter = 0;
-        Globals.setScore(0);
+        Globals.resetScore();
         SnakeHead.setSpeed(Globals.defaultSpeed);
         Globals.primaryStage.setScene(new Scene(Globals.game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT));
         Globals.primaryStage.show();

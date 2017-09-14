@@ -12,7 +12,7 @@ import javafx.scene.layout.Pane;
 
 import java.util.Random;
 
-public class FollowingEnemy extends GameEntity implements Animatable, Interactable{
+public class FollowingEnemy extends AbstractEnemy implements Animatable{
 
     private Point2D heading;
     private double direction;
@@ -28,16 +28,7 @@ public class FollowingEnemy extends GameEntity implements Animatable, Interactab
         startTime = System.currentTimeMillis();
 
         setImage(Globals.followingEnemy);
-
-        Random rnd = new Random();
-        setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
-        setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
-
-        direction = 0;
-        setRotate(direction);
-
-        pane.getChildren().add(this);
-        enemyCounter += 1;
+        enemyCounter++;
     }
 
 
@@ -58,7 +49,7 @@ public class FollowingEnemy extends GameEntity implements Animatable, Interactab
     }
 
 
-        @Override
+    @Override
     public void apply(SnakeHead player) {
             destroy();
             Globals.setHealth(damage);

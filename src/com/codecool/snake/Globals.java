@@ -76,6 +76,8 @@ public class Globals {
 
     public static int getScore() { return score; }
 
+    public static void resetScore(){ Globals.score = 0;}
+
     public static void addGameObject(GameEntity toAdd) {
         newGameObjects.add(toAdd);
     }
